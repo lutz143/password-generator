@@ -23,16 +23,25 @@ iteratorFun(passwordNumbers)
 iteratorFun(passwordLowerCase)
 iteratorFun(passwordUpperCase)
 
-const passwordMinLength = 8
-const passwordMaxLength = 128
+const passwordMinLength = 8;
+const passwordMaxLength = 128;
 
 
 
 
 
 function passwordOptionInput(){
-  let passwordLength = parseInt(
-    prompt('Please Input the Number of Characters to Generate:'),10);
+  let passwordLength = parseInt(prompt('Please Input the Number of Characters to Generate:'),10);
+
+  if (Number.isNaN(passwordLength)){
+    alert('Must provide answer in number format!');
+    return null;
+  }
+
+  if (passwordLength < passwordMinLength || passwordLength > passwordMaxLength){
+    alert('Password length is below or above the ' + passwordMinLength + '/' + passwordMaxLength + ' character limits!');
+    return null
+  }  
 
   return passwordOptionInput;
 }
@@ -40,24 +49,26 @@ function passwordOptionInput(){
 function createPassword(){
   let options = passwordOptionInput();
   let result = [];
+
+  return createPassword;
 }
 
 
 
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+// Write password to the #password input
+function writePassword() {
+  var password = createPassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // Create a function that iterates and console logs a parameter
 function iteratorFun(x){
