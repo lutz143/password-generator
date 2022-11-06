@@ -45,25 +45,41 @@ function passwordOptionInput(){
     return null
   }
   
+  // ask user if they would like to include lowercase letters
   if (confirm('Would you like to include lowercase letters?')){
-    let lowerCaseConfirm = true
-    console.log('Lower Case Answer: ' + lowerCaseConfirm)
+    var lowerCaseConfirm = true;
+    console.log('Lower Case Answer: ' + lowerCaseConfirm);
   } 
 
+  // ask user if they would like to include uppercase letters
   if (confirm('Would you like to include uppercase letters?')){
-    let upperCaseConfirm = true
-    console.log('Upper Case Answer: ' + upperCaseConfirm)
+    var upperCaseConfirm = true;
+    console.log('Upper Case Answer: ' + upperCaseConfirm);
   }
 
+  // ask user if they would like to include numeric characters
   if (confirm('Would you like to include numeric characters?')){
-    let numericConfirm = true
-    console.log('Numeric Character Answer: ' + numericConfirm)
+    let numericConfirm = true;
+    console.log('Numeric Character Answer: ' + numericConfirm);
   }
 
+  // ask user if they would like to include special characters
   if (confirm('Would you like to include special characters?')){
-    let specialCharConfirm = true
-    console.log('Special Character Answer: ' + specialCharConfirm)
+    let specialCharConfirm = true;
+    console.log('Special Character Answer: ' + specialCharConfirm);
   }
+
+  // if user does not select at least one character type, ask them to try again
+  if (
+    typeof(lowerCaseConfirm) !== "boolean" && 
+    typeof(upperCaseConfirm) !== "boolean" &&
+    typeof(numericConfirm) !== "boolean" && 
+    typeof(specialCharConfirm) !== "boolean"
+  ){
+    alert('Must have at least one character type selected, try again');
+    return null;
+  }
+
   return passwordOptionInput;
 }
 
