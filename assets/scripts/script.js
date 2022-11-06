@@ -31,7 +31,7 @@ const passwordMaxLength = 128;
 
 
 function passwordOptionInput(){
-  let passwordLength = parseInt(prompt('Please Input the Number of Characters to Generate:'),10);
+  var passwordLength = parseInt(prompt('Please Input the Number of Characters to Generate:'),10);
 
   // check if the user input characters that were not a number for password length
   if (Number.isNaN(passwordLength)){
@@ -47,47 +47,72 @@ function passwordOptionInput(){
   
   // ask user if they would like to include lowercase letters
   if (confirm('Would you like to include lowercase letters?')){
-    var lowerCaseConfirm = true;
+    var lowerCaseConfirm = 1;
     console.log('Lower Case Answer: ' + lowerCaseConfirm);
-  } 
+  }  else lowerCaseConfirm = 0;
 
   // ask user if they would like to include uppercase letters
   if (confirm('Would you like to include uppercase letters?')){
-    var upperCaseConfirm = true;
+    var upperCaseConfirm = 1;
     console.log('Upper Case Answer: ' + upperCaseConfirm);
-  }
+  } else var upperCaseConfirm = 0;
 
   // ask user if they would like to include numeric characters
   if (confirm('Would you like to include numeric characters?')){
-    let numericConfirm = true;
+    var numericConfirm = 1;
     console.log('Numeric Character Answer: ' + numericConfirm);
-  }
+  } else numericConfirm = 0;
 
   // ask user if they would like to include special characters
   if (confirm('Would you like to include special characters?')){
-    let specialCharConfirm = true;
+    var specialCharConfirm = 1;
     console.log('Special Character Answer: ' + specialCharConfirm);
-  }
+  } else specialCharConfirm = 0;
 
   // if user does not select at least one character type, ask them to try again
   if (
-    typeof(lowerCaseConfirm) !== "boolean" && 
-    typeof(upperCaseConfirm) !== "boolean" &&
-    typeof(numericConfirm) !== "boolean" && 
-    typeof(specialCharConfirm) !== "boolean"
+    lowerCaseConfirm !== 1 && 
+    upperCaseConfirm !== 1 &&
+    numericConfirm !== 1 && 
+    specialCharConfirm !== 1
   ){
     alert('Must have at least one character type selected, try again');
     return null;
   }
 
-  return passwordOptionInput;
+  // ===================================================================================================
+  // JOSH REMOVE THIS IF WE DON'T NEED
+  // ===================================================================================================
+  var passwordDict = {
+    passwordLength: passwordLength,
+    lowerCaseConfirm: lowerCaseConfirm,
+    upperCaseConfirm: upperCaseConfirm,
+    numericConfirm: numericConfirm,
+    specialCharConfirm: specialCharConfirm,
+  };
+
+  console.log(passwordDict)
+  // ===================================================================================================
+  // ===================================================================================================
+  
+  return passwordDict;
+}
+
+function randomCharSelector(arr){
+  var randomIndex = Math.floor(Math.random() * arr.passwordLength);
+  var randomSelection = arr[randomIndex];
+  
+  console.log(randomIndex);
+  console.log(randomSelection);
 }
 
 
 
+
+
 function createPassword(){
-  let options = passwordOptionInput();
-  let result = [];
+  var options = passwordOptionInput();
+  var result = [];
 
   return createPassword;
 }
