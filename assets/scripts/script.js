@@ -33,18 +33,41 @@ const passwordMaxLength = 128;
 function passwordOptionInput(){
   let passwordLength = parseInt(prompt('Please Input the Number of Characters to Generate:'),10);
 
+  // check if the user input characters that were not a number for password length
   if (Number.isNaN(passwordLength)){
     alert('Must provide answer in number format!');
     return null;
   }
 
+  // check if the user input too little or too many characters for password lenght
   if (passwordLength < passwordMinLength || passwordLength > passwordMaxLength){
     alert('Password length is below or above the ' + passwordMinLength + '/' + passwordMaxLength + ' character limits!');
     return null
-  }  
+  }
+  
+  if (confirm('Would you like to include lowercase letters?')){
+    let lowerCaseConfirm = true
+    console.log('Lower Case Answer: ' + lowerCaseConfirm)
+  } 
 
+  if (confirm('Would you like to include uppercase letters?')){
+    let upperCaseConfirm = true
+    console.log('Upper Case Answer: ' + upperCaseConfirm)
+  }
+
+  if (confirm('Would you like to include numeric characters?')){
+    let numericConfirm = true
+    console.log('Numeric Character Answer: ' + numericConfirm)
+  }
+
+  if (confirm('Would you like to include special characters?')){
+    let specialCharConfirm = true
+    console.log('Special Character Answer: ' + specialCharConfirm)
+  }
   return passwordOptionInput;
 }
+
+
 
 function createPassword(){
   let options = passwordOptionInput();
