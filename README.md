@@ -34,17 +34,14 @@
 
 ## Deployed Application
 
-``` 
-PLACEHOLDER
-![image](./assets/images/readMeScreenShot.GIF)
-```
+
+![image](./assets/images/lutz143_MockUp.JPG)
+
 
 ## Link to Deployed Application
 
-``` 
-PLACEHOLDER
-https://lutz143.github.io/week02-challenge-lutz143/
-```
+https://lutz143.github.io/password-generator/
+
 
 ## Assets/License/Credits
 
