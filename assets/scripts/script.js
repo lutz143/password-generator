@@ -26,10 +26,6 @@ iteratorFun(passwordUpperCase)
 const passwordMinLength = 8;
 const passwordMaxLength = 128;
 
-
-
-
-
 function passwordOptionInput(){
   var passwordLength = parseInt(prompt('Please Input the Number of Characters to Generate:'),10);
 
@@ -108,7 +104,7 @@ function createPassword(){
   var running_total = [];
   
   for(var i=0; i < selectors.passwordLength; i++) {
-    if (running_total > selectors.passwordLength)  {
+    if (running_total.length > selectors.passwordLength)  {
       break;
     } else {
       if (selectors.lowerCaseConfirm == 1) {
@@ -133,8 +129,9 @@ function createPassword(){
         var numericRand = Math.floor(Math.random() * passwordNumbers.length);
         console.log("Number Rando: " + numericRand);
   
-        var numberRandChar = passwordNumbers[numericRand];
+        var numberRandChar = passwordNumbers[numericRand].toString();
         console.log(numberRandChar);
+        console.log(typeof(numberRandChar));
         passArray.push(numberRandChar);
       } else var numberRandChar = 0;
   
