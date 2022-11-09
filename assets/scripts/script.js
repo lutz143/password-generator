@@ -95,29 +95,88 @@ function passwordOptionInput(){
   // ===================================================================================================
   // ===================================================================================================
   
+
   return passwordDict;
 }
 
-function randomCharSelector(arr){
-  var randomIndex = Math.floor(Math.random() * arr.passwordLength);
-  var randomSelection = arr[randomIndex];
+
+
+function randomCharSelector(x){
+  var randomIndex = Math.floor(Math.random() * x.passwordLength);
+  var randomSelection = x[randomIndex];
   
   console.log(randomIndex);
   console.log(randomSelection);
 }
 
 
-
-
-
+// josh - you can then duplicate the below if statement into separate for each char selecter, then wrap in its own
+// selector to iterate until passwordLength is achieved
 function createPassword(){
-  var options = passwordOptionInput();
-  var result = [];
+  var selectors = passwordOptionInput();
+  var passArray = [];
 
-  return createPassword;
+  if (selectors.lowerCaseConfirm == 1) {
+    var lowerRand = Math.floor(Math.random() * passwordLowerCase.length);
+    console.log("Lower Rando: " + lowerRand);
+
+    var lowerRandChar = passwordLowerCase[lowerRand];
+    console.log(lowerRandChar);
+    passArray.push(lowerRandChar);
+  } else var lowerRandChar = 0;
+
+  if (selectors.upperCaseConfirm == 1) {
+    var upperRand = Math.floor(Math.random() * passwordUpperCase.length);
+    console.log("Upper Rando: " + upperRand);
+
+    var upperRandChar = passwordUpperCase[upperRand];
+    console.log(upperRandChar);
+    passArray.push(upperRandChar);
+  } else var upperRandChar = 0;
+
+  if (selectors.numericConfirm == 1) {
+    var numericRand = Math.floor(Math.random() * passwordNumbers.length);
+    console.log("Number Rando: " + numericRand);
+
+    var numberRandChar = passwordNumbers[numericRand];
+    console.log(numberRandChar);
+    passArray.push(numberRandChar);
+  } else var numberRandChar = 0;
+
+  if (selectors.specialCharConfirm == 1) {
+    var specialRand = Math.floor(Math.random() * passwordCharacters.length);
+    console.log("Special Rando: " + specialRand);
+
+    var specialRandChar = passwordCharacters[specialRand];
+    console.log(specialRandChar);
+    passArray.push(specialRandChar);
+  } else var specialRandChar = 0;
+
+  // var options = passwordOptionInput();
+  console.log('Password Array: ' + passArray)
+  return passArray;
 }
 
 
+
+
+// =================================================================================
+// comment out for test only
+
+// function createPassword(){
+//   // var userSelections = passwordDict();
+//   // var finalPassword = [];
+//   // var characterOptions = [];
+//   // var characterSelection = [];
+
+//   // return finalPassword.join();
+
+//   var options = passwordOptionInput();
+//   var result = [];
+
+//   return createPassword;
+// }
+// =================================================================================
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -135,7 +194,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Create a function that iterates and console logs a parameter
-function iteratorFun(x){
+function iteratorFun(x) {
   for(var i=0; i < x.length; i++) {
     // This statement will run each time the loop is executed
     console.log(x[i]);
